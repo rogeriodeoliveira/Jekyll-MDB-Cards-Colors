@@ -1,0 +1,45 @@
+{% for post in site.related_posts limit:1 %} <!-- for 1 card-->
+<div class="card"> <!-- div 1 card-->
+  <div class="card-header text-center text-white bg-primary">Leia Mais</div><!-- div header 1 card-->
+
+  {%- if post.category == "segurança" -%}<!-- if body color 1 card-->
+  <div class="card-body text-white bg-info text-center"><!-- div header 1 card-->
+    {%- elsif post.category == "privacidade" -%}
+    <div class="card-body text-white bg-warning text-center">
+      {%- elsif post.category == "fraude" -%}
+      <div class="card-body text-white bg-danger text-center">
+        {%- else -%}
+        <div class="card-body text-white bg-secondary text-center">
+          {%- endif -%}<!-- End if body color 1 card-->
+
+          <h3><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="text-white">{{ post.title }}</a></h3>
+          <p>
+            {% if post.preview %}
+              {{ post.preview }} ...
+            {% else %}
+              {{ post.content | strip_html | strip_newlines | truncate: 100 }}&hellip;
+            {% endif %}
+          </p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="text-white"><ins>...Continue Lendo</ins></a>
+        </div><!-- End div header 1 card-->
+      </div><!-- End div 1 card-->
+      {% endfor %}<!-- End for 1 card-->
+
+      <div class="card-group text-center pt-2"><!-- div card-group -->
+        {% for post in site.related_posts limit:2 offset:1 %}<!-- for posts -->
+         {%- if post.category == "segurança" -%}<!-- if div body color -->
+        <div class="card text-white bg-info border-white"> <!-- div body color -->
+          {%- elsif post.category == "privacidade" -%}
+          <div class="card text-white bg-warning border-white">
+            {%- elsif post.category == "fraude" -%}
+            <div class="card text-white bg-danger border-white">
+              {%- else -%}
+              <div class="card text-white bg-secondary border-white">
+                {%- endif -%}<!-- End if body color -->
+
+                <h4><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="text-white">{{ post.title }}</a></h4>
+                <p class="card-text"><small class="text-white">Publicado em {{ post.date | date: "%B %d, %Y" }}</small></p>
+
+              </div><!-- End div body color -->
+              {% endfor %}<!-- End for posts -->
+            </div><!-- End div card-group -->

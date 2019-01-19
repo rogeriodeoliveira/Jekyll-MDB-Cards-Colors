@@ -1,0 +1,74 @@
+---
+layout: home
+title: Blog
+description : {{site.description}}
+---
+
+{% for post in paginator.posts %}
+
+<div class="card shadow text-white my-5">
+
+  {%- if post.category == "segurança" -%}
+  <div class="card-header bg-info text-center">Segurança</div>
+  {%- elsif post.category == "privacidade" -%}
+  <div class="card-header bg-warning text-center">Privacidade</div>
+  {%- elsif post.category == "fraude" -%}
+  <div class="card-header bg-danger text-center">Anti-Fraude</div>
+  {%- else -%}
+  <div class="card-header bg-secondary text-center"></div>
+  {%- endif -%}
+
+  <div class="card-body bg-nigth">
+    <a class="text-style" href="{{ post.url | prepend: site.pathurl}}">
+      <h4 class="card-title text-center text-white">{{ post.title }}</h4>
+    </a>
+
+    {%- if post.preview -%}
+    <p class="card-text text-white">{{ post.preview | truncate: 80}}<a href="{{post.url | prepend: site.pathurl}}" class=" text-white">
+    </p><ins>...Continuar lendo</ins></a>
+    {%- else -%}
+    <p class="card-text text-white">{{ post.excerpt | truncate: 80 }}<a href="{{post.url | prepend: site.pathurl}}"
+        class="text-white"></p><ins>...Continuar lendo</ins></a>
+    {%- endif -%}
+
+    <p class="card-text"><small class="text-read">{{ post.date | date_to_long_string }}</small></p>
+
+  </div>
+</div>
+
+{%- endfor -%}
+<script>
+  const boxes = document.querySelectorAll('.card');
+
+  TweenMax.set(boxes, {
+    opacity: 0
+  })
+
+  var config = {
+    threshold: 0.5
+  };
+
+
+  var tl = new TimelineMax();
+
+  var observer = new IntersectionObserver(function (entries, self) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var overlap = '-=0.3';
+
+        if (!tl.isActive()) {
+          overlap = '+=0';
+        }
+
+        tl.to(entry.target, 0.5, {
+          opacity: 1
+        }, overlap);
+        self.unobserve(entry.target);
+      }
+    });
+  }, config);
+
+  boxes.forEach(function (box) {
+    observer.observe(box);
+  });
+</script>

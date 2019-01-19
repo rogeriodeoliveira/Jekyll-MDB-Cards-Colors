@@ -1,0 +1,69 @@
+//
+// Color system
+//
+
+
+$nigth: #444444 !default;
+$read: #DDDDDD !default;
+
+$nigth: $nigth !default;
+$read: $read !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(("nigth": $nigth,
+"read": $read), $theme-colors);
+
+.text-style {
+    text-decoration: none;
+}
+
+.gallery {
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+// icons social style
+.icons {
+    
+    a {
+        color: rgb(177, 187, 189);
+    }
+    a:hover {
+        color: rgb(23, 175, 212);
+      }
+}
+
+// Brand Navbar
+.brand {
+    width: 30px;
+    height: auto;
+}
+.img-autor {
+    width: 80px;
+    height: auto;
+}
+// style img posts
+img{
+    border-radius: 3px !important;
+    max-width:100% !important;
+    height:auto !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+// style links external posts 
+p {
+    a{
+        color: aliceblue !important;
+        font-style: italic !important;
+        text-decoration: underline !important;
+        font-weight: bold !important;
+        background-image: url(/images/icons/external-link-alt-solid.svg);
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+    }
+}
+a{
+    outline: none !important;
+}

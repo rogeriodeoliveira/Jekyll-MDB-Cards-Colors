@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " pt-BR " }}">
+{%- include head.html -%}
+{%- include navbar.html -%}
+
+<body>
+  {%- include header.html -%}
+  <section class="bg-dark pt-3" id="mode-dark-container">
+    <div class="container">
+      <div class="row justify-content-md-center text">
+        <!-- row content-->
+        <div class="col col-lg-10 bg-nigth text-read shadow " id="mode-dark">
+          <!-- class shadow-->
+          <div class="py-5">
+
+            {{ content }}
+
+            {%- if site.social-share-bar == true -%}
+            <!-- if social share - is true in _config.yml-->
+            <div class="text-white" id="mode-dark-share">
+              {% include share-bar.html %}
+            </div>
+            {%- endif -%}
+            <!-- End if social share-->
+
+          </div>
+        </div><!-- End class shadow-->
+      </div><!-- End row content-->
+      <div class="row justify-content-md-center pt-5 text-white" id="mode-dark-autor">
+        <!-- row author-->
+        <div class="shadow col col-lg-10">
+          {%- include author.html -%}
+        </div>
+      </div><!-- End row author-->
+
+      <div class="row justify-content-md-center pt-5">
+        <!-- row read-more-->
+        <div class="col col-lg-10">
+          {% if site.related_posts.size > 0 %}
+          {% include read-more.html %}
+          {% endif %}
+        </div>
+      </div><!-- End row read-more-->
+
+      <div class="row justify-content-md-center py-5">
+        <!-- row disqus-->
+        <div class="col col-lg-8 bg-nigth">
+          {% if site.disqus.shortname %}
+            {% include disqus_comments.html %}
+          {% endif %}
+        </div>
+      </div><!-- End row disqus-->
+
+    </div>
+  </section>
+
+  {%- include footer.html -%}
+  {%- include scripts.html -%}
+  {%- include lightbox.html -%}
+  {%- include lazyload.html -%}
+
+</body>
+<script>
+  const nightMode = document.querySelector('#night-mode');
+
+  // ao clicar mudaremos as cores
+  nightMode.addEventListener('click', () => {
+    // adiciona a classe `night-mode` ao html
+
+    document.getElementById("mode-dark-container").classList.toggle("bg-dark");
+
+    document.getElementById("mode-dark").classList.toggle("bg-nigth");
+    document.getElementById("mode-dark").classList.toggle("text-read");
+
+    document.getElementById("mode-dark-autor").classList.toggle("text-white");
+    document.getElementById("mode-dark-share").classList.toggle("text-white");
+
+  });
+</script>
+
+</html>

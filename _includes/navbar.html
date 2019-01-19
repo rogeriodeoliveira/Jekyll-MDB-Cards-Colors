@@ -1,0 +1,41 @@
+<!-- Navbar - Menu -->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a href="#">
+    <img src="{{site.baseurl}}/assets/images/logo.png" alt="logo" class="brand">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      {% for item in site.links %}
+      <!-- Menu list -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ item.url }}" rel="noopener">{{ item.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+      <!-- Search Blog -->
+    <div class="bg-dark mr-5" data-toggle="modal" data-target=".busca" style="cursor:pointer">
+      <i class=" text-white fas fa-search"> Busca</i>
+    </div>
+    
+    <!-- Show lightbulb only post -->
+    {% if page.name == 'index.html' %}
+      <!-- not show -->
+      {% else %}
+        <!-- show Lightbulb - Dark Mode disable-->
+        <spam class="text-white pr-2" id="night-mode" style="cursor: pointer;"><i class="fas fa-lightbulb"></i></spam>
+    {% endif %}
+  </div>
+</nav>
+<!-- Modal Search-->
+<div class="modal fade busca" tabindex="-1" role="dialog" aria-labelledby="modalBusca" aria-hidden="true" id="mode-dark-lightbulb">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      {%- include search.html -%}
+    </div>
+  </div>
+</div>

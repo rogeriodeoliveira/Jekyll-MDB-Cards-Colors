@@ -1,0 +1,78 @@
+title: Template Jekyll Cards
+email: email@gmail.com
+description: You description here.
+author: you name
+about: You is.... 
+copyright:  you copy
+google-tag-id:  # e.g: XXX-XXXX00X
+# Disqus Comments
+disqus:
+    # Leave shortname blank to disable comments site-wide.
+    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+    shortname: #disqus-name-id
+
+baseurl: "" # /blog
+url: "" # url https://example.com
+
+social_id:
+  - facebook:
+  - twitter:
+  - google:
+  - linkedin:
+  - github:
+
+social-share-bar: true
+
+links: # Links navbar
+  - title: Home
+    url: https://youdomain.com/
+  - title: Artigos
+    url: https://blog.youdomain.com/
+  #- title: Ferramentas
+  #  url: https://youdomain.com/ferramentas
+  - title: Sobre
+    url: https://youdomain.com/sobre
+  #- title: Contato
+  #  url: https://youdomain.com/contato
+  - title: Curso
+    url: https://youdomain.com/curso
+  - title: Livro
+    url: https://youdomain.com/livro
+  #- title: Contribua
+  #  url: https://youdomain.com/contribuicao
+
+# links
+# termo-link: "https://youdomain.com/termo"
+about-link: "https://youdomain.com/sobre/"
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+paginate: 9
+
+permalink: /:title/
+
+lang: pt-BR
+
+sass:
+    style: :compressed
+
+include: [_redirects]
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
