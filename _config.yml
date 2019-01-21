@@ -43,6 +43,7 @@ links: # Links navbar
 
 # links
 # termo-link: "https://youdomain.com/termo"
+brand-link: "https://youdomain.com"
 about-link: "https://youdomain.com/sobre/"
 markdown: kramdown
 highlighter: rouge
