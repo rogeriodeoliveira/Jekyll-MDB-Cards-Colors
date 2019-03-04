@@ -118,3 +118,6 @@ For update jekyll-docker run script ./dockerUpdate.sh
 
 For build run script ./dockerBuild.sh
 
+# License
+This theme is free and open source software, distributed under the The MIT License.
+
