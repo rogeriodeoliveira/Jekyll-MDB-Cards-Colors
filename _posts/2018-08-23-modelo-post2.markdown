@@ -3,6 +3,9 @@ layout: "post"
 title: "modelo-post2"
 date: "2018-08-23 20:36"
 category: segurança
+img: assets/images/capas/e.png
+fontImg: "Pixabay"
+urlImg: "https://pixabay.com/"
 preview: 
 ---
 

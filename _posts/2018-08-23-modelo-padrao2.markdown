@@ -3,6 +3,9 @@ layout: "post"
 title: "modelo-padrao2"
 date: "2018-08-23 20:38"
 category: fraude
+img: assets/images/capas/h.png
+fontImg: "freepik"
+urlImg: "https://freepik.com/"
 preview: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
 ---
 

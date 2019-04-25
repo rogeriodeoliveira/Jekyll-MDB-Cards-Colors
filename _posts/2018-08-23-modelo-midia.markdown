@@ -3,6 +3,9 @@ layout: "post"
 title: "modelo-midia"
 date: "2018-08-23 20:17"
 category: privacidade
+img: assets/images/capas/g.jpg
+fontImg: "Google"
+urlImg: "https://google.com/"
 preview: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
 ---
 

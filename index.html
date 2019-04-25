@@ -1,36 +1,58 @@
 ---
 layout: home
 title: Blog
-description : {{site.description}}
+image:
+  path: assets/images/RLogo.png
 ---
 
 {% for post in paginator.posts %}
 
 <div class="card shadow text-white my-5">
+  
+    {%- if post.img -%}
+      <a href="{{post.url | prepend: site.pathurl}}">
+        <img width="100%" src="{{site.baseurl}}/{{post.img}}" alt="{{post.title}}">
+      </a>
+      <a href="{{post.urlImg}}" target="_blank" rel="noopener">
+        <p class="card-text" style="position: absolute; bottom: 6px; right: 16px;" ><small class="text-read">Imagem: {{post.fontImg}}</small></p>
+      </a>
+    {% else %}
+      <a href="{{post.url | prepend: site.pathurl}}">
+        <img width="100%" src="{{site.baseurl}}/assets/images/RLogo.png" alt="{{site.title}}">
+      </a>
+    {% endif %}
 
   {%- if post.category == "segurança" -%}
-  <div class="card-header bg-info text-center">Segurança</div>
+  <div class="card-header bg-info text-center">
+    <h4>Segurança</h4>
+  </div>
   {%- elsif post.category == "privacidade" -%}
-  <div class="card-header bg-warning text-center">Privacidade</div>
+  <div class="card-header bg-warning text-center">
+    <h4>Privacidade</h4>
+  </div>
   {%- elsif post.category == "fraude" -%}
-  <div class="card-header bg-danger text-center">Anti-Fraude</div>
+  <div class="card-header bg-danger text-center">
+    <h4>Anti-Fraude</h4>
+  </div>
   {%- else -%}
-  <div class="card-header bg-secondary text-center"></div>
+  <div class="card-header bg-secondary text-center">
+    <h4>Aviso</h4>
+  </div>
   {%- endif -%}
 
   <div class="card-body bg-nigth">
-    <a class="text-style" href="{{ post.url | prepend: site.pathurl}}">
+    <a class="text-style" href="{{ post.url | prepend: site.pathurl}}" aria-label="{{ post.title }}">
       <h4 class="card-title text-center text-white">{{ post.title }}</h4>
     </a>
 
     {%- if post.preview -%}
-    <p class="card-text text-white">{{ post.preview | truncate: 80}}<a href="{{post.url | prepend: site.pathurl}}" class=" text-white">
+    <p class="card-text text-white">{{ post.preview | truncate: 80}}<a href="{{post.url | prepend: site.pathurl}}"
+        class=" text-white" aria-label="{{ post.title }}">
     </p><ins>...Continuar lendo</ins></a>
     {%- else -%}
     <p class="card-text text-white">{{ post.excerpt | truncate: 80 }}<a href="{{post.url | prepend: site.pathurl}}"
-        class="text-white"></p><ins>...Continuar lendo</ins></a>
+        class="text-white" aria-label="{{ post.title }}"></p><ins>...Continuar lendo</ins></a>
     {%- endif -%}
-
     <p class="card-text"><small class="text-read">{{ post.date | date_to_long_string }}</small></p>
 
   </div>
@@ -48,9 +70,7 @@ description : {{site.description}}
     threshold: 0.5
   };
 
-
   var tl = new TimelineMax();
-
   var observer = new IntersectionObserver(function (entries, self) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
