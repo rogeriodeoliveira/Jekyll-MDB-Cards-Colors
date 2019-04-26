@@ -3,7 +3,7 @@
 
       
 
-Example Real: https://blog.rogeriodeoliveira.com/
+Example: https://blog.rogeriodeoliveira.com/
 
 **Includes**
 * Share bar
